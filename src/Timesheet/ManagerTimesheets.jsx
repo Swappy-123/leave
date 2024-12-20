@@ -20,7 +20,7 @@ const ManagerTimesheets = () => {
 
   const fetchSubmissions = async () => {
     try {
-      const { data } = await axios.get(`https://harhsa-backend.azurewebsites.net/api/timesheets/list/manager/${managerId}`);
+      const { data } = await axios.get(`http://localhost:8085/api/timesheets/list/manager/${managerId}`);
       setSubmissions(data);
       setFilteredSubmissions(data.reverse());
       setCounts({
@@ -63,7 +63,7 @@ const ManagerTimesheets = () => {
   const handleApprove = async (id) => {
     setLoading(true);
     try {
-      await axios.put(`https://harhsa-backend.azurewebsites.net/api/timesheets/Approve/${id}/status/APPROVED`);
+      await axios.put(`http://localhost:8085/api/timesheets/Approve/${id}/status/APPROVED`);
       fetchSubmissions();
     } catch (error) {
       console.error("Error approving timesheet:", error);
@@ -75,7 +75,7 @@ const ManagerTimesheets = () => {
   const handleReject = async () => {
     setLoading(true);
     try {
-      await axios.put(`https://harhsa-backend.azurewebsites.net/api/timesheets/reject/${currentId}/status/REJECTED/comments/${comments}`);
+      await axios.put(`http://localhost:8085/api/timesheets/reject/${currentId}/status/REJECTED/comments/${comments}`);
       fetchSubmissions();
       handleClose();
     } catch (error) {

@@ -16,7 +16,7 @@ const TimesheetSubmission = ({ setSubmissions }) => {
         SubmissionDate: new Date().toISOString(),
       };
 
-      const response = await axios.post("https://harhsa-backend.azurewebsites.net/api/timesheets", newFormData);
+      const response = await axios.post("http://localhost:8085/api/timesheets", newFormData);
       console.log(response.data);
 
       // Add the new submission to the list of submissions

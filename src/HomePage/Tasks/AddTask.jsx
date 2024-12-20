@@ -43,7 +43,7 @@ export default function AddTask(props) {
 //           "notificationTo":email,
 //           "isRead":false
 //       })
-        await axios.post("https://talents-backebd3.azurewebsites.net/apis/employees/tasks", {
+        await axios.post("http://localhost:8085/apis/employees/tasks", {
           taskAssignedFrom: localStorage.getItem('email'),
           personName,
           personEmail: email,

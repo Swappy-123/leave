@@ -23,7 +23,7 @@ const EmployeeHomePage = ({
     const fetchSubmissions = async () => {
       try {
         const response = await axios.get(
-          `https://harhsa-backend.azurewebsites.net/api/timesheets/list/${employeeId}`
+          `http://localhost:8085/api/timesheets/list/${employeeId}`
         );
         const data = response.data.reverse();
         setSubmissions(data);
@@ -48,7 +48,7 @@ const EmployeeHomePage = ({
 
   const handleDeleteTimesheet = async (id) => {
     try {
-      await axios.delete(`https://harhsa-backend.azurewebsites.net/api/timesheets/delete/${id}`);
+      await axios.delete(`http://localhost:8085/api/timesheets/delete/${id}`);
       const updatedSubmissions = filteredSubmissions.filter(
         (sub) => sub.id !== id
       );

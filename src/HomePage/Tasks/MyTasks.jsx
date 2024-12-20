@@ -17,7 +17,7 @@ const MyTasks=props=>{
       const fetchData = async () => {
           const email=localStorage.getItem('email');
         try {
-          const response = await axios.get(`https://talents-backebd3.azurewebsites.net/apis/employees/tasksAssignedTo/${email}`);
+          const response = await axios.get(`http://localhost:8085/apis/employees/tasksAssignedTo/${email}`);
           let filteredData;
 
           if(tab){
